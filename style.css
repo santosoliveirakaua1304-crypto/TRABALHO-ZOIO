@@ -1,1 +1,150 @@
 
+/* ==========================================================================
+   FOLHA DE ESTILOS - FLASHCARDS ACESSÍVEIS (TIPOS DE MOTOS)
+   ========================================================================== */
+
+/* 1. VARIÁVEIS DE CORES E CONFIGURAÇÕES (Garante contraste adequado - WCAG AA/AAA) */
+:root {
+  --bg-color: #f8f9fa;
+  --card-bg: #ffffff;
+  --text-main: #1a1a1a;        /* Contraste ~16:1 sobre o fundo branco */
+  --text-muted: #4a4a4a;
+  --primary: #005a9c;          /* Azul de alto contraste para links e títulos */
+  --primary-hover: #003f6e;
+  --border-color: #767676;     /* Borda com contraste visível */
+  --focus-ring: #ffbf47;       /* Amarelo de alto contraste para foco */
+  --answer-bg: #eef6fc;
+}
+
+/* 2. RESET E ESTILOS BASE */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif; /* Fonte limpa de fácil leitura */
+  line-height: 1.6;                          /* Altura de linha para legibilidade */
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  margin: 0;
+  padding: 20px;
+  font-size: 1.125rem;                      /* 18px base para facilitar a leitura */
+}
+
+/* 3. ATALHO DE ACESSIBILIDADE (Skip Link) */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 10px;
+  background: var(--primary);
+  color: #ffffff;
+  padding: 12px;
+  z-index: 100;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+}
+
+.skip-link:focus {
+  top: 10px;
+  outline: 3px solid var(--focus-ring);
+}
+
+/* 4. CABEÇALHO */
+header {
+  max-width: 900px;
+  margin: 0 auto 30px auto;
+  text-align: center;
+}
+
+h1 {
+  color: var(--primary);
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* 5. GRID DOS FLASHCARDS */
+section[aria-label] {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* 6. ESTILO DOS CARDS (ARTICLE) */
+article {
+  background-color: var(--card-bg);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Remove a linha horizontal caso esteja no HTML original */
+hr {
+  display: none;
+}
+
+article h2 {
+  color: var(--primary);
+  font-size: 1.4rem;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 8px;
+}
+
+article p {
+  margin: 0 0 15px 0;
+}
+
+/* 7. REVELAÇÃO DA RESPOSTA (<details> e <summary>) */
+details {
+  margin-top: 10px;
+}
+
+summary {
+  background-color: var(--primary);
+  color: #ffffff;
+  padding: 12px 16px;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+  list-style-position: inside;
+  transition: background-color 0.2s ease;
+}
+
+summary:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Conteúdo da resposta revelada */
+details[open] p {
+  background-color: var(--answer-bg);
+  padding: 15px;
+  margin-top: 12px;
+  border-left: 5px solid var(--primary);
+  border-radius: 4px;
+  color: var(--text-main);
+}
+
+/* 8. INDICADOR DE FOCO VISÍVEL PARA TECLADO (Essencial para Acessibilidade - WCAG 2.4.7) */
+button:focus-visible,
+summary:focus-visible,
+a:focus-visible,
+main:focus-visible {
+  outline: 4px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+/* 9. RODAPÉ */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
