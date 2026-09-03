@@ -3,198 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flashcards de Estudo - Acessibilidade Web</title>
-  <style>
-    /* Configurações Globais e Reseta Acessível */
-    :root {
-      --bg-color: #f4f6f9;
-      --card-bg: #ffffff;
-      --text-color: #1a1a1a;
-      --primary-color: #005a9c; /* Alto contraste */
-      --primary-hover: #003d6b;
-      --focus-outline: #ffbf47;
-      --border-color: #d1d5db;
-    }
-
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-      background-color: var(--bg-color);
-      color: var(--text-color);
-      margin: 0;
-      padding: 20px;
-    }
-
-    /* Links de atalho para acessibilidade (Skip Links) */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: var(--primary-color);
-      color: white;
-      padding: 8px;
-      z-index: 100;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .skip-link:focus {
-      top: 0;
-    }
-
-    header {
-      max-width: 800px;
-      margin: 0 auto 30px auto;
-      text-align: center;
-    }
-
-    h1 {
-      color: var(--primary-color);
-      font-size: 2rem;
-    }
-
-    main {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    /* Grid de Flashcards */
-    .flashcard-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      list-style: none;
-      padding: 0;
-    }
-
-    /* Estilo do Flashcard */
-    .card {
-      background-color: var(--card-bg);
-      border: 2px solid var(--border-color);
-      border-radius: 8px;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    }
-
-    .card h2 {
-      font-size: 1.25rem;
-      margin-top: 0;
-      color: var(--primary-color);
-    }
-
-    /* Botão Revelar Acessível */
-    .reveal-btn {
-      background-color: var(--primary-color);
-      color: #ffffff;
-      border: none;
-      padding: 10px 15px;
-      font-size: 1rem;
-      font-weight: bold;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-top: 15px;
-      text-align: left;
-      display: inline-block;
-    }
-
-    .reveal-btn:hover {
-      background-color: var(--primary-hover);
-    }
-
-    /* Foco Visível Obrigatório para Acessibilidade por Teclado */
-    button:focus-visible, a:focus-visible {
-      outline: 4px solid var(--focus-outline);
-      outline-offset: 2px;
-    }
-
-    /* Resposta Oculta */
-    .answer {
-      margin-top: 15px;
-      padding-top: 15px;
-      border-top: 1px solid var(--border-color);
-      display: none;
-    }
-
-    /* Classe ativada via JavaScript */
-    .answer.is-visible {
-      display: block;
-    }
-  </style>
+  <title>Flashcards de Estudo: Tipos de Motocicletas</title>
 </head>
 <body>
 
-  <a href="#conteudo-principal" class="skip-link">Pular para o conteúdo principal</a>
+  <a href="#conteudo-principal">Pular para o conteúdo principal</a>
 
   <header>
-    <h1>Flashcards: Acessibilidade Web (a11y)</h1>
-    <p>Utilize a tecla <strong>Tab</strong> para navegar entre os cartões e a tecla <strong>Espaço</strong> ou <strong>Enter</strong> para revelar a resposta.</p>
+    <h1>Flashcards de Estudo: Tipos de Motos</h1>
+    <p>Use os cards abaixo para estudar os principais tipos de motocicletas. Utilize a tecla TAB para navegar entre os elementos.</p>
   </header>
 
-  <main id="conteudo-principal">
-    <ul class="flashcard-grid">
+  <main id="conteudo-principal" tabindex="-1">
+    <section aria-label="Coleção de Flashcards de Motos">
 
-      <li class="card">
-        <article>
-          <h2>Pergunta 1</h2>
-          <p>O que é o atributo <code>alt</code> em uma imagem?</p>
-          <button type="button" class="reveal-btn" aria-expanded="false" aria-controls="resposta-1">
-            Mostrar Resposta
-          </button>
-          <div id="resposta-1" class="answer">
-            <p><strong>Resposta:</strong> É o texto alternativo usado por leitores de tela para descrever a imagem a pessoas com deficiência visual.</p>
-          </div>
-        </article>
-      </li>
+      <article>
+        <h2>Street / Naked</h2>
+        <p><strong>Pergunta:</strong> Qual é a principal característica das motos Street e Naked?</p>
+        <details>
+          <summary>Mostrar Resposta</summary>
+          <p><strong>Resposta:</strong> São voltadas para o uso urbano diário. Oferecem posição de pilotagem ereta e confortável, sendo que as Nakeds não possuem carenagem para expor o motor.</p>
+        </details>
+      </article>
 
-      <li class="card">
-        <article>
-          <h2>Pergunta 2</h2>
-          <p>Por que o foco visível (<code>:focus-visible</code>) é essencial?</p>
-          <button type="button" class="reveal-btn" aria-expanded="false" aria-controls="resposta-2">
-            Mostrar Resposta
-          </button>
-          <div id="resposta-2" class="answer">
-            <p><strong>Resposta:</strong> Permite que usuários que navegam pelo teclado saibam exatamente qual elemento está selecionado no momento.</p>
-          </div>
-        </article>
-      </li>
+      <hr>
 
-      <li class="card">
-        <article>
-          <h2>Pergunta 3</h2>
-          <p>O que significa a sigla WCAG?</p>
-          <button type="button" class="reveal-btn" aria-expanded="false" aria-controls="resposta-3">
-            Mostrar Resposta
-          </button>
-          <div id="resposta-3" class="answer">
-            <p><strong>Resposta:</strong> <em>Web Content Accessibility Guidelines</em> (Diretrizes de Acessibilidade para Conteúdo Web).</p>
-          </div>
-        </article>
-      </li>
+      <article>
+        <h2>Custom / Cruiser</h2>
+        <p><strong>Pergunta:</strong> Para qual tipo de uso as motos Custom são projetadas?</p>
+        <details>
+          <summary>Mostrar Resposta</summary>
+          <p><strong>Resposta:</strong> Focadas em viagens longas e estradas. Têm assento baixo, pedaleiras avançadas e posição de pilotagem relaxada.</p>
+        </details>
+      </article>
 
-    </ul>
+      <hr>
+
+      <article>
+        <h2>Trail / Big Trail</h2>
+        <p><strong>Pergunta:</strong> Qual é o diferencial das motos da categoria Trail?</p>
+        <details>
+          <summary>Mostrar Resposta</summary>
+          <p><strong>Resposta:</strong> Possuem suspensão de longo curso e posição alta, sendo ideais para uso misto (asfalto e terra/off-road).</p>
+        </details>
+      </article>
+
+      <hr>
+
+      <article>
+        <h2>Esportiva (Sport)</h2>
+        <p><strong>Pergunta:</strong> Qual é o foco principal do design de uma moto Esportiva?</p>
+        <details>
+          <summary>Mostrar Resposta</summary>
+          <p><strong>Resposta:</strong> Priorizam aerodinâmica e alto desempenho. O piloto anda inclinado para a frente e a moto possui carenagens completas.</p>
+        </details>
+      </article>
+
+    </section>
   </main>
 
-  <script>
-    // Lógica para alternar a exibição da resposta com suporte a leitor de tela
-    document.querySelectorAll('.reveal-btn').forEach(button => {
-      button.addEventListener('click', () => {
-        const answerId = button.getAttribute('aria-controls');
-        const answerEl = document.getElementById(answerId);
-        const isExpanded = button.getAttribute('aria-expanded') === 'true';
-
-        // Alterna o estado
-        button.setAttribute('aria-expanded', !isExpanded);
-        answerEl.classList.toggle('is-visible');
-
-        // Atualiza o texto do botão
-        button.textContent = isExpanded ? 'Mostrar Resposta' : 'Ocultar Resposta';
-      });
-    });
-  </script>
+  <footer>
+    <p><small>Página desenvolvida com foco em acessibilidade nativa (WCAG / HTML5 semântico).</small></p>
+  </footer>
 
 </body>
 </html>
